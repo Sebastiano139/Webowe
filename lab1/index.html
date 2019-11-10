@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cooking</title>
+    <meta name="description" content="Simple Cooking Page">
+    <meta name="author" content="Sebastian Kuśnierz">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+    <script type="text/javascript" src="../jquery-scrollspy.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="dropdown">
+        <button class="dropbtn" onclick="dropDownMenuFunc()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+            <a href="#Home"><img src="images/pobrane.jpg"></a>
+            <a href="#Home">Home</a>
+            <a href="#News">News</a>
+            <a href="#Menu">Menu</a>
+            <a href="#Contact">Contact</a>
+        </div>
+        </div> 
+    </div>
+    
+    <nav>
+        <img src="images/pobrane.jpg">
+        <a href="#Home">Home</a>
+        <a href="#News">News</a>
+        <a href="#Menu">Menu</a>
+        <a href="#Contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="Home" class="content">
+            <header>
+                <h1>Nasze sklepy</h1>
+            </header>   
+            <img src="images/gif4.gif">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Pellentesque vitae mi mauris. Quisque ut porta mauris. Mauris eleifend vestibulum nisl, molestie porta est. 
+                Sed consequat fermentum orci, in malesuada nisi suscipit laoreet. Sed id scelerisque velit. Donec at ligula ut turpis viverra maximus. 
+                Pellentesque lacinia nisi ipsum, sed vehicula elit aliquam ut. Mauris at tincidunt odin.
+                Nulla sit amet tempor ipsum. Vestibulum fringilla lectus a dolor rutrum, ac rhoncus magna fringilla. 
+            </p>
+            <button>Odzwiedz nasze sklepy!</button> 
+        </section>
+
+        <section id="News" class="content1">
+                <img src="images/burger.jpg">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae mi mauris.
+                    Quisque ut porta mauris. Mauris eleifend vestibulum nisl, molestie porta est. 
+                    Sed consequat fermentum orci, in malesuada nisi suscipit laoreet. Sed id scelerisque velit. 
+                    Donec at ligula ut turpis viverra maximus. Pellentesque lacinia nisi ipsum, sed vehicula elit aliquam ut. Mauris at tincidunt odio.
+                    Nulla sit amet tempor ipsum. Vestibulum fringilla lectus a dolor rutrum, ac rhoncus magna fringilla. 
+                    Mauris at porttitor ipsum. Maecenas ut viverra elit. Maecenas tristique luctus consequat. 
+                    Fusce commodo vel ipsum vel mattis. Morbi dignissim lectus in convallis vehicula. 
+                    Morbi cursus elit in nisi scelerisque, vel ultrices quam ullamcorper. Sed sollicitudin sapien ac pretium imperdiet. 
+                    Sed ut accumsan erat. Vivamus eleifend, risus non egestas finibus, ligula felis pharetra est, faucibus hendrerit odio odio in odio. 
+                    Nunc vel finibus orci. Suspendisse fringilla vehicula porttitor. 
+                    Phasellus scelerisque, augue sit amet vehicula dictum, est arcu dapibus ante, in mollis sapien turpis sed erat. 
+                    Aenean interdum diam augue, in consectetur velit efficitur in.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae mi mauris. Quisque ut porta mauris.                     
+                </p>
+        </section>
+
+        <section id="Menu" class="content2"> 
+            
+            <div class="grid" id="FirstImage" onclick="changeFirstImage(this.id)">
+                <img src="images/burger.jpg" id="menuImg" class="imageInMenu" >
+                <p id="ReciptHeader" class="ReciptHeader">Burger king</p>
+                <ul id="ReciptList" class="ReciptList">
+                        <li>Lorem </li>
+                        <li>ipsum </li>
+                        <li>dolor </li>
+                        <li>sit</li>
+                        <li>consectetur</li>
+                        <li>adipiscing</li>
+                        <li>Pellentesque</li>
+                        <li>Skellige</li>
+                        <li>mauris</li>
+                </ul> 
+
+                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                <ol id="HiddenList" class="HiddenList">
+                        <li>Dupa </li>
+                        <li>ipsum </li>
+                        <li>dolor </li>
+                        <li>sit</li>
+                        <li>consectetur</li>
+                        <li>adipiscing</li>
+                        <li>Pellentesque</li>
+                        <li>Skellige</li>
+                        <li>mauris</li>
+                </ol> 
+                <div class="miniFooter">
+                    <button>Zamów!</button>
+                    <span class="close">&times;</span>
+                </div>
+            </div>
+
+
+
+            <div class="grid" id="SecondImage" onclick="changeFirstImage(this.id)">
+                <img src="images/burger3.jpg" id="menuImg" class="imageInMenu" >
+                <p id="ReciptHeader" class="ReciptHeader">Donger Burger</p>
+                <ul id="ReciptList" class="ReciptList">
+                        <li>turpis</li>
+                        <li>Donec </li>
+                        <li>at </li>
+                        <li>sit</li>
+                        <li>ut</li>
+                        <li>viverra</li>
+                        <li>maximus</li>
+                        <li>ligula</li>
+                        <li>Morbi</li>
+                </ul> 
+
+
+                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                <ol id="HiddenList" class="HiddenList">
+                        <li>Dupa </li>
+                        <li>ipsum </li>
+                        <li>dolor </li>
+                        <li>sit</li>
+                        <li>consectetur</li>
+                        <li>adipiscing</li>
+                        <li>Pellentesque</li>
+                        <li>Skellige</li>
+                        <li>mauris</li>
+                </ol> 
+
+                <div class="miniFooter">
+                        <button>Zamów!</button>
+                        <span class="close">&times;</span>
+                </div>
+            </div>
+            
+            <div class="grid" id="ThirdImage" onclick="changeFirstImage(this.id)">
+                <img src="images/burger5.jpg" id="menuImg" class="imageInMenu">
+                <p id="ReciptHeader" class="ReciptHeader">Bomba Burger</p>
+                <ul id="ReciptList" class="ReciptList">
+                        <li>fringilla </li>
+                        <li>Phasellus </li>
+                        <li>egestas </li>
+                        <li>sit</li>
+                        <li>consectetur</li>
+                        <li>sollicitudin</li>
+                        <li>Pellentesque</li>
+                        <li>accumsan</li>
+                        <li>Morbi</li>
+                </ul> 
+
+                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                <ol id="HiddenList" class="HiddenList">
+                        <li>Dupa </li>
+                        <li>ipsum </li>
+                        <li>dolor </li>
+                        <li>sit</li>
+                        <li>consectetur</li>
+                        <li>adipiscing</li>
+                        <li>Pellentesque</li>
+                        <li>Skellige</li>
+                        <li>mauris</li>
+                </ol> 
+                <div class="miniFooter">
+                        <button>Zamów!</button>
+                        <span class="close">&times;</span>
+                </div>
+            
+            </div>
+        </section>
+        </main>
+
+    <footer id="Contact">
+            <img src="images/pobrane.jpeg">
+            <p>Lorem</p>
+            <p>Ipsum</p>
+            <p>email: sebastiano139@gmail.com</p>
+            <p>adres: krakow 23-321</p>
+            <p>14-234-12-34</p>
+    </footer>
+
+
+    <script>
+        var linkImage = "file:///home/sebastian/Pulpit/webowe/lab1/images/";
+            var imageList = { 
+                "burger5.jpg" : "burger6.jpg",
+                "burger6.jpg" : "burger5.jpg",
+                "burger.jpg" : "burger2.jpg",
+                "burger2.jpg" : "burger.jpg",
+                "burger3.jpg" : "burger4.jpg",
+                "burger4.jpg" : "burger3.jpg"
+            }
+
+            var previousId;
+            function dropDownMenuFunc() {
+              document.getElementById("myDropdown").classList.toggle("show");
+            }
+            
+            window.onclick = function(e) {
+              if (!e.target.matches('.dropbtn')) {
+              var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                  myDropdown.classList.remove('show');
+                }
+              }
+            }
+
+            function removeImagePrefix(src) {
+                return src.split("/").pop();
+            }
+
+            function mirrorImage(src) {
+                return linkImage+imageList[removeImagePrefix(src)];
+
+            }
+            
+            function animatedMirrorImageChange(id, img) {
+                $(document.getElementById(id)).fadeOut("slow", () => {
+                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', mirrorImage(img))
+                        var isDispalyed = HiddenHeader.style.display === "block";
+                        HiddenList.style.display = HiddenHeader.style.display =  isDispalyed ? "none" : "block";
+                        ReciptList.style.display = ReciptHeader.style.display =  isDispalyed ? "block" : "none";
+                    }).fadeIn("slow");
+            }
+
+            function changeImageAndDescription(id, img, img1, img2,  HiddenHeader, HiddenList, ReciptHeader, ReciptList){
+ 
+                if(img.src == img1) {
+                    $(document.getElementById(id)).fadeOut("slow", () => {
+                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', img2)
+                        HiddenHeader.style.display = "block";
+                        HiddenList.style.display = "block";
+                        ReciptHeader.style.display = "none";
+                        ReciptList.style.display = "none";
+                    }).fadeIn("slow");
+
+                    previousId=id;
+
+                    $(document.getElementById(previousId)).fadeOut("slow", () => {
+                        $(document.getElementById(previousId).getElementsByClassName("imageInMenu")[0]).attr('src', img1)
+                        HiddenHeader.style.display = "none";
+                        HiddenList.style.display = "none";
+                        ReciptHeader.style.display = "block";
+                        ReciptList.style.display = "block";
+                    }).fadeIn("slow");
+
+                }
+                else {
+                    $(document.getElementById(id)).fadeOut("slow", () => {
+                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', img1)
+                        HiddenHeader.style.display = "none";
+                        HiddenList.style.display = "none";
+                        ReciptHeader.style.display = "block";
+                        ReciptList.style.display = "block";
+                    }).fadeIn("slow");
+                    previousId=undefined;
+                }
+                console.log(previousId);      
+            }
+
+            function changeFirstImage(id)
+            {  
+                var HiddenHeader = document.getElementById(id).getElementsByClassName("HiddenHeader")[0];
+                var HiddenList = document.getElementById(id).getElementsByClassName("HiddenList")[0];
+                var ReciptHeader = document.getElementById(id).getElementsByClassName("ReciptHeader")[0];
+                var ReciptList = document.getElementById(id).getElementsByClassName("ReciptList")[0];
+                var img = document.getElementById(id).getElementsByClassName("imageInMenu")[0];
+                img1 = img.src;  
+                img2 = mirrorImage(img1);
+                changeImageAndDescription(id, img, img1, img2,  HiddenHeader, HiddenList, ReciptHeader, ReciptList);
+            }
+
+    </script>
+</body>
+</html>
+
+

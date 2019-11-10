@@ -1,0 +1,13 @@
+.jumbotron {
+    background-image: url(images/tlo.jpeg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color : white;
+    height: 600px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
