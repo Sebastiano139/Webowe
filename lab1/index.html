@@ -75,7 +75,7 @@
 
         <section id="Menu" class="content2"> 
             
-            <div class="grid" id="FirstImage" onclick="changeFirstImage(this.id)">
+            <div class="grid" id="FirstImage" onclick="changeCurrentRecipie(this.id)">
                 <img src="images/burger.jpg" id="menuImg" class="imageInMenu" >
                 <p id="ReciptHeader" class="ReciptHeader">Burger king</p>
                 <ul id="ReciptList" class="ReciptList">
@@ -110,7 +110,7 @@
 
 
 
-            <div class="grid" id="SecondImage" onclick="changeFirstImage(this.id)">
+            <div class="grid" id="SecondImage" onclick="changeCurrentRecipie(this.id)">
                 <img src="images/burger3.jpg" id="menuImg" class="imageInMenu" >
                 <p id="ReciptHeader" class="ReciptHeader">Donger Burger</p>
                 <ul id="ReciptList" class="ReciptList">
@@ -145,7 +145,7 @@
                 </div>
             </div>
             
-            <div class="grid" id="ThirdImage" onclick="changeFirstImage(this.id)">
+            <div class="grid" id="ThirdImage" onclick="changeCurrentRecipie(this.id)">
                 <img src="images/burger5.jpg" id="menuImg" class="imageInMenu">
                 <p id="ReciptHeader" class="ReciptHeader">Bomba Burger</p>
                 <ul id="ReciptList" class="ReciptList">
@@ -202,7 +202,22 @@
                 "burger4.jpg" : "burger3.jpg"
             }
 
-            var previousId;
+            var recipies = {};
+
+            function registerImage(id) {
+                recipies[id] = false;
+            }
+
+            function unregisterImage(id) {
+                delete recipies[id];
+            }
+
+            registerImage('FirstImage');
+            registerImage('SecondImage');
+            registerImage('ThirdImage');
+            console.log(recipies);
+
+
             function dropDownMenuFunc() {
               document.getElementById("myDropdown").classList.toggle("show");
             }
@@ -216,69 +231,49 @@
               }
             }
 
-            function removeImagePrefix(src) {
-                return src.split("/").pop();
+            function removeImagePrefix(img) {
+                return img.src.split("/").pop();
             }
 
             function mirrorImage(src) {
                 return linkImage+imageList[removeImagePrefix(src)];
+            }
 
+            function getRecipieElements(id) {
+                let HiddenHeader = document.getElementById(id).getElementsByClassName("HiddenHeader")[0];
+                let HiddenList = document.getElementById(id).getElementsByClassName("HiddenList")[0];
+                let ReciptHeader = document.getElementById(id).getElementsByClassName("ReciptHeader")[0];
+                let ReciptList = document.getElementById(id).getElementsByClassName("ReciptList")[0];
+                let img = document.getElementById(id).getElementsByClassName("imageInMenu")[0];
+
+                return {HiddenList, HiddenHeader, ReciptList, ReciptHeader, img}
             }
             
-            function animatedMirrorImageChange(id, img) {
+            function animateMirrorImageChange(id, img, elements) {
                 $(document.getElementById(id)).fadeOut("slow", () => {
                         $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', mirrorImage(img))
+                        const {HiddenList, HiddenHeader, ReciptList, ReciptHeader} = elements;
+
                         var isDispalyed = HiddenHeader.style.display === "block";
+
                         HiddenList.style.display = HiddenHeader.style.display =  isDispalyed ? "none" : "block";
                         ReciptList.style.display = ReciptHeader.style.display =  isDispalyed ? "block" : "none";
                     }).fadeIn("slow");
             }
 
-            function changeImageAndDescription(id, img, img1, img2,  HiddenHeader, HiddenList, ReciptHeader, ReciptList){
- 
-                if(img.src == img1) {
-                    $(document.getElementById(id)).fadeOut("slow", () => {
-                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', img2)
-                        HiddenHeader.style.display = "block";
-                        HiddenList.style.display = "block";
-                        ReciptHeader.style.display = "none";
-                        ReciptList.style.display = "none";
-                    }).fadeIn("slow");
-
-                    previousId=id;
-
-                    $(document.getElementById(previousId)).fadeOut("slow", () => {
-                        $(document.getElementById(previousId).getElementsByClassName("imageInMenu")[0]).attr('src', img1)
-                        HiddenHeader.style.display = "none";
-                        HiddenList.style.display = "none";
-                        ReciptHeader.style.display = "block";
-                        ReciptList.style.display = "block";
-                    }).fadeIn("slow");
-
+            function changeCurrentRecipie(id) {
+                for (let recipieId in recipies) {
+                    if (id !== recipieId && recipies[recipieId] === true) {
+                        const {img, ...elements} = getRecipieElements(recipieId); 
+                        animateMirrorImageChange(recipieId, img, elements);
+                        recipies[recipieId] = false;
+                        break;
+                    }
                 }
-                else {
-                    $(document.getElementById(id)).fadeOut("slow", () => {
-                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', img1)
-                        HiddenHeader.style.display = "none";
-                        HiddenList.style.display = "none";
-                        ReciptHeader.style.display = "block";
-                        ReciptList.style.display = "block";
-                    }).fadeIn("slow");
-                    previousId=undefined;
-                }
-                console.log(previousId);      
-            }
 
-            function changeFirstImage(id)
-            {  
-                var HiddenHeader = document.getElementById(id).getElementsByClassName("HiddenHeader")[0];
-                var HiddenList = document.getElementById(id).getElementsByClassName("HiddenList")[0];
-                var ReciptHeader = document.getElementById(id).getElementsByClassName("ReciptHeader")[0];
-                var ReciptList = document.getElementById(id).getElementsByClassName("ReciptList")[0];
-                var img = document.getElementById(id).getElementsByClassName("imageInMenu")[0];
-                img1 = img.src;  
-                img2 = mirrorImage(img1);
-                changeImageAndDescription(id, img, img1, img2,  HiddenHeader, HiddenList, ReciptHeader, ReciptList);
+                const {img, ...elements} = getRecipieElements(id);
+                animateMirrorImageChange(id, img, elements);
+                recipies[id] = !recipies[id];
             }
 
     </script>
