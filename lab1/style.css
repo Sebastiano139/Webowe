@@ -2,16 +2,117 @@
      scroll-behavior: smooth;
  }
 
+/* Side Nav  */
+.sidenav h1 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 450px;
+    position: fixed;
+    z-index: 1;
+    top: 20%;
+    left: -450px;
+    background-color: #111;
+    overflow-x: hidden;
+    /* transition: 0.7s; */
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-duration: 0.7s;
+    padding-top: 60px;
+    overflow: hidden;
+}
+  
+.sidenav input, .sidenav textarea{
+    width: 80%;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.sidenav a{
+    padding: 8px 8px 8px 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav button {
+    background-color: #818181; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: auto;
+    margin-top: 10px;
+}
+  
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+  
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* ---------------------- */
+
+
+/* Sticky Button */
  body {
     margin: 0;
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #cccccc;
 }
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+}
+
+.arrow-right {
+    background: #999999;
+    color: white;
+}
+
+.icon-bar a:hover {
+    background-color: #000;
+}
+
+/* ---------------------------------------------------------- */
 
 .navbar{
     display: none;
 }
+
 
 main {
     margin-left: 50px;
@@ -99,6 +200,7 @@ nav a:hover {
 }
 
 .content2 {
+    justify-content: center;
     margin-top: 100px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -127,8 +229,10 @@ nav a:hover {
 }
 
 .content2 .grid {
+    justify-content: space-between;
     float: left;
-    display: block;
+    display: flex;
+    flex-direction: column;
     border-style: dashed;
     border-width: 2px;
 }
@@ -139,10 +243,10 @@ nav a:hover {
 
 
 
-  .close:hover {
+.close:hover {
     background-color: #262626;
     color: white;
-  }
+}
 
 .content2 .grid p{
     padding: 10px;
@@ -231,7 +335,7 @@ footer{
         top: 0;
         width: 100%;
     }
-      
+        
     .navbar a {
         float: left;
         font-size: 16px;
@@ -288,6 +392,9 @@ footer{
     .show {
         display: block;
     }
-
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
 

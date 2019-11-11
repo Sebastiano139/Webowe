@@ -14,6 +14,22 @@
 </head>
 
 <body>
+    <div class="icon-bar">
+        <a onclick="openNav()" class="arrow-right"><i class="fa fa-arrow-circle-right"></i></a> 
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h1>Add Reciept : </h1>
+        <form id="recipieForm">
+            <input type="text" id="dish" placeholder="Dish" />
+            <input type="text" id="primaryImage" placeholder="Primary image url"/>
+            <input type="text" id="secondaryImage" placeholder="Secondary image url" />
+            <textarea rows="4" id="recipie" placeholder="Recipie"></textarea>
+            <textarea rows="4" id="algorithm" placeholder="Algorithm"></textarea>
+            <button onclick="addNewRecipieToList(event, getDataFromForm()); closeNav();"> Submit! </button>
+        </form>
+    </div>
 
     <div class="navbar">
         <div class="dropdown">
@@ -76,107 +92,111 @@
         <section id="Menu" class="content2"> 
             
             <div class="grid" id="FirstImage" onclick="changeCurrentRecipie(this.id)">
-                <img src="images/burger.jpg" id="menuImg" class="imageInMenu" >
-                <p id="ReciptHeader" class="ReciptHeader">Burger king</p>
-                <ul id="ReciptList" class="ReciptList">
-                        <li>Lorem </li>
-                        <li>ipsum </li>
-                        <li>dolor </li>
-                        <li>sit</li>
-                        <li>consectetur</li>
-                        <li>adipiscing</li>
-                        <li>Pellentesque</li>
-                        <li>Skellige</li>
-                        <li>mauris</li>
-                </ul> 
+                <div>
+                    <img src="images/burger.jpg" id="menuImg" class="imageInMenu" >
+                    <p id="ReciptHeader" class="ReciptHeader">Burger king</p>
+                    <ul id="ReciptList" class="ReciptList">
+                            <li>Lorem </li>
+                            <li>ipsum </li>
+                            <li>dolor </li>
+                            <li>sit</li>
+                            <li>consectetur</li>
+                            <li>adipiscing</li>
+                            <li>Pellentesque</li>
+                            <li>Skellige</li>
+                            <li>mauris</li>
+                    </ul> 
 
-                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
-                <ol id="HiddenList" class="HiddenList">
-                        <li>Dupa </li>
-                        <li>ipsum </li>
-                        <li>dolor </li>
-                        <li>sit</li>
-                        <li>consectetur</li>
-                        <li>adipiscing</li>
-                        <li>Pellentesque</li>
-                        <li>Skellige</li>
-                        <li>mauris</li>
-                </ol> 
-                <div class="miniFooter">
-                    <button>Zamów!</button>
-                    <span class="close">&times;</span>
+                    <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                    <ol id="HiddenList" class="HiddenList">
+                            <li>Dupa </li>
+                            <li>ipsum </li>
+                            <li>dolor </li>
+                            <li>sit</li>
+                            <li>consectetur</li>
+                            <li>adipiscing</li>
+                            <li>Pellentesque</li>
+                            <li>Skellige</li>
+                            <li>mauris</li>
+                    </ol> 
+                    <div class="miniFooter">
+                        <button>More!!</button>
+                        <span class="close" id="removeRecipie1" onclick="removeRecipie(event, 'FirstImage')" >&times;</span>
+                    </div>
                 </div>
             </div>
 
 
 
             <div class="grid" id="SecondImage" onclick="changeCurrentRecipie(this.id)">
-                <img src="images/burger3.jpg" id="menuImg" class="imageInMenu" >
-                <p id="ReciptHeader" class="ReciptHeader">Donger Burger</p>
-                <ul id="ReciptList" class="ReciptList">
-                        <li>turpis</li>
-                        <li>Donec </li>
-                        <li>at </li>
-                        <li>sit</li>
-                        <li>ut</li>
-                        <li>viverra</li>
-                        <li>maximus</li>
-                        <li>ligula</li>
-                        <li>Morbi</li>
-                </ul> 
+                <div>
+                    <img src="images/burger3.jpg" id="menuImg" class="imageInMenu" >
+                    <p id="ReciptHeader" class="ReciptHeader">Donger Burger</p>
+                    <ul id="ReciptList" class="ReciptList">
+                            <li>turpis</li>
+                            <li>Donec </li>
+                            <li>at </li>
+                            <li>sit</li>
+                            <li>ut</li>
+                            <li>viverra</li>
+                            <li>maximus</li>
+                            <li>ligula</li>
+                            <li>Morbi</li>
+                    </ul> 
 
 
-                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
-                <ol id="HiddenList" class="HiddenList">
-                        <li>Dupa </li>
-                        <li>ipsum </li>
-                        <li>dolor </li>
-                        <li>sit</li>
-                        <li>consectetur</li>
-                        <li>adipiscing</li>
-                        <li>Pellentesque</li>
-                        <li>Skellige</li>
-                        <li>mauris</li>
-                </ol> 
-
+                    <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                    <ol id="HiddenList" class="HiddenList">
+                            <li>Dupa </li>
+                            <li>ipsum </li>
+                            <li>dolor </li>
+                            <li>sit</li>
+                            <li>consectetur</li>
+                            <li>adipiscing</li>
+                            <li>Pellentesque</li>
+                            <li>Skellige</li>
+                            <li>mauris</li>
+                    </ol> 
+                </div>
                 <div class="miniFooter">
-                        <button>Zamów!</button>
-                        <span class="close">&times;</span>
+                        <button>More!!</button>
+                        <span class="close" id="removeRecipie2" onclick="removeRecipie(event, 'SecondImage')">&times;</span>
                 </div>
             </div>
             
             <div class="grid" id="ThirdImage" onclick="changeCurrentRecipie(this.id)">
-                <img src="images/burger5.jpg" id="menuImg" class="imageInMenu">
-                <p id="ReciptHeader" class="ReciptHeader">Bomba Burger</p>
-                <ul id="ReciptList" class="ReciptList">
-                        <li>fringilla </li>
-                        <li>Phasellus </li>
-                        <li>egestas </li>
-                        <li>sit</li>
-                        <li>consectetur</li>
-                        <li>sollicitudin</li>
-                        <li>Pellentesque</li>
-                        <li>accumsan</li>
-                        <li>Morbi</li>
-                </ul> 
+                <div>
+                    <img src="images/burger5.jpg" id="menuImg" class="imageInMenu">
+                    <p id="ReciptHeader" class="ReciptHeader">Bomba Burger</p>
+                    <ul id="ReciptList" class="ReciptList">
+                            <li>fringilla </li>
+                            <li>Phasellus </li>
+                            <li>egestas </li>
+                            <li>sit</li>
+                            <li>consectetur</li>
+                            <li>sollicitudin</li>
+                            <li>Pellentesque</li>
+                            <li>accumsan</li>
+                            <li>Morbi</li>
+                    </ul> 
 
-                <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
-                <ol id="HiddenList" class="HiddenList">
-                        <li>Dupa </li>
-                        <li>ipsum </li>
-                        <li>dolor </li>
-                        <li>sit</li>
-                        <li>consectetur</li>
-                        <li>adipiscing</li>
-                        <li>Pellentesque</li>
-                        <li>Skellige</li>
-                        <li>mauris</li>
-                </ol> 
-                <div class="miniFooter">
-                        <button>Zamów!</button>
-                        <span class="close">&times;</span>
+                    <p id="HiddenHeader" class="HiddenHeader">Algorytm :</p>
+                    <ol id="HiddenList" class="HiddenList">
+                            <li>Dupa </li>
+                            <li>ipsum </li>
+                            <li>dolor </li>
+                            <li>sit</li>
+                            <li>consectetur</li>
+                            <li>adipiscing</li>
+                            <li>Pellentesque</li>
+                            <li>Skellige</li>
+                            <li>mauris</li>
+                    </ol> 
                 </div>
-            
+                <div class="miniFooter">
+                        <button>More!</button>
+                        <span class="close" id="removeRecipie3" onclick="removeRecipie(event, 'ThirdImage')" >&times;</span>
+                </div>
             </div>
         </section>
         </main>
@@ -190,94 +210,8 @@
             <p>14-234-12-34</p>
     </footer>
 
+    <script src="./scripts/helpersFunction.js"> </script>
+    <script src="./scripts/recipie.js"> </script>
 
-    <script>
-        var linkImage = "file:///home/sebastian/Pulpit/webowe/lab1/images/";
-            var imageList = { 
-                "burger5.jpg" : "burger6.jpg",
-                "burger6.jpg" : "burger5.jpg",
-                "burger.jpg" : "burger2.jpg",
-                "burger2.jpg" : "burger.jpg",
-                "burger3.jpg" : "burger4.jpg",
-                "burger4.jpg" : "burger3.jpg"
-            }
-
-            var recipies = {};
-
-            function registerImage(id) {
-                recipies[id] = false;
-            }
-
-            function unregisterImage(id) {
-                delete recipies[id];
-            }
-
-            registerImage('FirstImage');
-            registerImage('SecondImage');
-            registerImage('ThirdImage');
-            console.log(recipies);
-
-
-            function dropDownMenuFunc() {
-              document.getElementById("myDropdown").classList.toggle("show");
-            }
-            
-            window.onclick = function(e) {
-              if (!e.target.matches('.dropbtn')) {
-              var myDropdown = document.getElementById("myDropdown");
-                if (myDropdown.classList.contains('show')) {
-                  myDropdown.classList.remove('show');
-                }
-              }
-            }
-
-            function removeImagePrefix(img) {
-                return img.src.split("/").pop();
-            }
-
-            function mirrorImage(src) {
-                return linkImage+imageList[removeImagePrefix(src)];
-            }
-
-            function getRecipieElements(id) {
-                let HiddenHeader = document.getElementById(id).getElementsByClassName("HiddenHeader")[0];
-                let HiddenList = document.getElementById(id).getElementsByClassName("HiddenList")[0];
-                let ReciptHeader = document.getElementById(id).getElementsByClassName("ReciptHeader")[0];
-                let ReciptList = document.getElementById(id).getElementsByClassName("ReciptList")[0];
-                let img = document.getElementById(id).getElementsByClassName("imageInMenu")[0];
-
-                return {HiddenList, HiddenHeader, ReciptList, ReciptHeader, img}
-            }
-            
-            function animateMirrorImageChange(id, img, elements) {
-                $(document.getElementById(id)).fadeOut("slow", () => {
-                        $(document.getElementById(id).getElementsByClassName("imageInMenu")[0]).attr('src', mirrorImage(img))
-                        const {HiddenList, HiddenHeader, ReciptList, ReciptHeader} = elements;
-
-                        var isDispalyed = HiddenHeader.style.display === "block";
-
-                        HiddenList.style.display = HiddenHeader.style.display =  isDispalyed ? "none" : "block";
-                        ReciptList.style.display = ReciptHeader.style.display =  isDispalyed ? "block" : "none";
-                    }).fadeIn("slow");
-            }
-
-            function changeCurrentRecipie(id) {
-                for (let recipieId in recipies) {
-                    if (id !== recipieId && recipies[recipieId] === true) {
-                        const {img, ...elements} = getRecipieElements(recipieId); 
-                        animateMirrorImageChange(recipieId, img, elements);
-                        recipies[recipieId] = false;
-                        break;
-                    }
-                }
-
-                const {img, ...elements} = getRecipieElements(id);
-                animateMirrorImageChange(id, img, elements);
-                recipies[id] = !recipies[id];
-            }
-
-    </script>
 </body>
 </html>
-
-
