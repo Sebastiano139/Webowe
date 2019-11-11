@@ -20,7 +20,6 @@
     left: -450px;
     background-color: #111;
     overflow-x: hidden;
-    /* transition: 0.7s; */
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     transition-duration: 0.7s;
     padding-top: 60px;
@@ -191,6 +190,7 @@ nav a:hover {
 .content1 img{
     align-items: center;
     margin: auto;
+    height: 288px;
 }
 
 .content1 p{
@@ -220,11 +220,11 @@ nav a:hover {
     border-width: 2px;
 }
 
-#HiddenHeader {
+.content2 .HiddenHeader {
     display: none;
 }
 
-#HiddenList {
+.content2 .HiddenList {
     display: none;
 }
 

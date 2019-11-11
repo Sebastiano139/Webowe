@@ -8,7 +8,6 @@ function closeNav() {
    
 }
 
-
 window.onclick = function(e) {
    if (!e.target.matches('.dropbtn')) {
        let myDropdown = document.getElementById("myDropdown");

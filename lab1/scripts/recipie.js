@@ -36,10 +36,11 @@ function createListElements(list) {
 
 function addNewRecipieToList(e , elements) {
     e.preventDefault();
-
+    
     const {dish, primaryImage, secondaryImage, recipie, algorithm} = elements;
-    imageList[primaryImage] = secondaryImage;
-    imageList[secondaryImage] = primaryImage;
+
+    imageList[removeImagePrefix(primaryImage)] = { prefix: getImagePrefix(secondaryImage), img: removeImagePrefix(secondaryImage)};
+    imageList[removeImagePrefix(secondaryImage)] = { prefix: getImagePrefix(primaryImage), img: removeImagePrefix(primaryImage)};
 
     let div = document.createElement("div");
     div.classList.add("grid");
@@ -50,7 +51,7 @@ function addNewRecipieToList(e , elements) {
     div.innerHTML += `
         <div>
             <img src="${primaryImage}" class="imageInMenu">
-            <p class="ReciptHeader">Bomba Burger</p>
+            <p class="ReciptHeader">${dish}</p>
             <ul class="ReciptList">
                 ${createListElements(recipie)}
             </ul> 
@@ -80,19 +81,26 @@ function unregisterRecipie(id) {
     delete recipies[id];
 }
 
-function removeImagePrefix(img) {
-    return img.src.split("/").pop();
+function getImagePrefix(img) {
+    const imgLengtrh = img.split("/").length;
+    return img.split("/").map((el, i) => {
+        if (imgLengtrh !== i + 1) {
+            return el;
+        }
+    }).join("/");
+}
+
+function removeImagePrefix(src) {
+    return src.split("/").pop();
 }
 
 function mirrorImage(img) {
-    const { prefix, img: imgSrc } = imageList[removeImagePrefix(img)];
+    const { prefix, img: imgSrc } = imageList[removeImagePrefix(img.src)];
     return prefix + imgSrc;
 }
 
 function getRecipieElements(id) {
-    console.log(id);
     let element = document.getElementById(id);
-    console.log(element);
     let HiddenHeader = document.getElementById(id).getElementsByClassName("HiddenHeader")[0];
     let HiddenList = document.getElementById(id).getElementsByClassName("HiddenList")[0];
     let ReciptHeader = document.getElementById(id).getElementsByClassName("ReciptHeader")[0];
