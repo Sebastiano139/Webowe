@@ -2,6 +2,17 @@
      scroll-behavior: smooth;
  }
 
+.correctContent {
+    background-color: #00ff00;
+    border: solid 3px green;
+}
+
+.incorrectContent {
+    background-color: #ff4d4d;
+    border: solid 3px red;
+}
+
+
 /* Side Nav  */
 .sidenav h1 {
     font-size: 30px;
@@ -31,7 +42,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 16px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
     margin-top: 10px;
@@ -239,6 +250,8 @@ nav a:hover {
 
 .content2 .grid img{
     width: 100%;
+    max-width: 513px;
+    max-height: 288px;
 }
 
 

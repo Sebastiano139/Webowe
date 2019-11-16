@@ -22,12 +22,12 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <h1>Add Reciept : </h1>
         <form id="recipieForm">
-            <input type="text" id="dish" placeholder="Dish" />
-            <input type="text" id="primaryImage" placeholder="Primary image url"/>
-            <input type="text" id="secondaryImage" placeholder="Secondary image url" />
-            <textarea rows="4" id="recipie" placeholder="Recipie"></textarea>
-            <textarea rows="4" id="algorithm" placeholder="Algorithm"></textarea>
-            <button onclick="addNewRecipieToList(event, getDataFromForm()); closeNav();"> Submit! </button>
+            <input type="text" class="badinput" id="dish" placeholder="Dish" maxlength="20" required/>
+            <input type="text" id="primaryImage" placeholder="Primary image url" pattern="https://.+\.[jpeg|jpg|gif|png].*" required/>
+            <input type="text" id="secondaryImage" placeholder="Secondary image url" pattern="https://.+\.[jpeg|jpg|gif|png].*" required/>
+            <textarea rows="4" id="recipie" placeholder="Recipie" required></textarea>
+            <textarea rows="4" id="algorithm" placeholder="Algorithm" required></textarea>
+            <button onclick="addNewRecipieToList(event, getDataFromForm());"> Submit! </button>
         </form>
     </div>
 

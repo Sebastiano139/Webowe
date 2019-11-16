@@ -39,6 +39,13 @@ function addNewRecipieToList(e , elements) {
     
     const {dish, primaryImage, secondaryImage, recipie, algorithm} = elements;
 
+    if(formIsEmpty(elements))return;
+    if(!urlIsCorrect(primaryImage)) return;
+    if(!urlIsCorrect(secondaryImage)) return;
+
+
+    let form = document.getElementById("Menu");
+
     imageList[removeImagePrefix(primaryImage)] = { prefix: getImagePrefix(secondaryImage), img: removeImagePrefix(secondaryImage)};
     imageList[removeImagePrefix(secondaryImage)] = { prefix: getImagePrefix(primaryImage), img: removeImagePrefix(primaryImage)};
 
@@ -66,7 +73,9 @@ function addNewRecipieToList(e , elements) {
                 <span class="close" onclick="removeRecipie(event, '${div.id}')" >&times;</span>
         </div>    
     `;
-    document.getElementById("Menu").appendChild(div)
+
+    document.getElementById("Menu").appendChild(div);
+    closeNav();
 }
 
 function dropDownMenuFunc() {
