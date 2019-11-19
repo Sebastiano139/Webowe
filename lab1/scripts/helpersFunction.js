@@ -27,7 +27,7 @@ function formIsEmpty(elements) {
 }
 
 function urlIsCorrect(url) {
-    if(url.match(/https?:[\/|.|\w|\s|-]*\.(?:jpeg|jpg|gif|png).*/g) === null) return false;
+    if(url.match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png|jpeg).*/g) === null) return false;
     return true;
 }
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
     validateFormWhenIsFocus("input");
     validateFormWhenIsFocus("textarea");
     $("#primaryImage").focusout(function(){
-        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpeg|jpg|gif|png).*/g) === null){
+        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png|jpeg).*/g) === null){
             incorrectForm(this);
         }
         else { 
@@ -69,7 +69,7 @@ $(document).ready(function() {
         }     
     })
     $("#secondaryImage").focusout(function(){
-        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpeg|jpg|gif|png).*/g) === null){
+        if($(this).val().match(/https?:[\/|.|\w|\s|-]*\.(?:jpg|gif|png|jpeg).*/g) === null){
             incorrectForm(this);
         }
         else { 
