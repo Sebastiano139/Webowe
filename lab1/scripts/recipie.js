@@ -1,6 +1,3 @@
-let recipies = {};
-let linkImage = "./images/";
-
 let imageList = {
     "burger.jpg": { prefix: "./images/", img: "burger2.jpg" },
     "burger2.jpg": { prefix: "./images/", img: "burger.jpg" },
@@ -9,6 +6,9 @@ let imageList = {
     "burger5.jpg": { prefix: "./images/", img: "burger6.jpg" },
     "burger6.jpg": { prefix: "./images/", img: "burger5.jpg" }
 } 
+
+let recipies = {};
+let linkImage = "./images/";
 
 registerRecipie('FirstImage');
 registerRecipie('SecondImage');
