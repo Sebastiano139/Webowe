@@ -25,7 +25,9 @@
         <div *ngIf="f.conPassword.errors && f.conPassword.errors.minlength">Password is too short (min 6) !</div>
         <div *ngIf="f.conPassword.errors && f.conPassword.errors.required">Confirm your password !</div>
       </div>
-
+      <div *ngIf="registrationComplete" class="alert alert-success" role="alert">
+          Registration complete!
+      </div>
       <button type="submit">Register</button>
       <button (click)="onLogout()"> Back</button>
     </form>

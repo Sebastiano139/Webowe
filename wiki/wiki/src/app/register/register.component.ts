@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   private formSubmitAttempt: boolean;
   private emailAlreadyExist: boolean;
+  private registrationComplete: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +25,16 @@ export class RegisterComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  async validHttpResponse(user: User) {
+    await this.userService.addUser(user);
+    console.log(this.userService.getIsDone());
+    return this.userService.getIsDone();
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   get f() {
@@ -49,20 +60,27 @@ export class RegisterComponent implements OnInit {
     return this.form.value.password === this.form.value.conPassword;
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.formSubmitAttempt = true;
     this.emailAlreadyExist = false;
     const user: User = {
+      id: this.form.value.email,
       email: this.form.value.email,
       password: this.form.value.password
     };
 
-    if ( !this.passwordsMustMatch()) { return; }
-    if ( this.Users.userIsThere(user) ) {
+    if (!this.passwordsMustMatch()) { return; }
+
+    if (this.Users.userIsThere(user)) {
       this.emailAlreadyExist = true;
       return;
     }
-    this.userService.addUser(user);
+
+    if (await this.validHttpResponse(user) === true) {
+      this.registrationComplete = true;
+      await this.delay(1000);
+      this.onLogout();
+    }
   }
 
 }

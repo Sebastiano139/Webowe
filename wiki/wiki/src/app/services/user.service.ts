@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class UserService {
 
   baseurl = 'http://localhost:3000';
-
+  public isDone: boolean;
   constructor(private http: HttpClient) { }
 
   // Http Headers
@@ -20,10 +20,18 @@ export class UserService {
     })
   };
 
+  getIsDone() {
+    return this.isDone;
+  }
+
   addUser(user: User) {
-    this.http.post<User>(this.baseurl + '/users', user).subscribe(
-    res => { console.log(res); },
-    (err: HttpErrorResponse) => { console.log(err); } );
+    return this.http.post(this.baseurl + '/users/', user).toPromise().then(
+      res => {
+        this.isDone = true;
+      },
+      err => {
+        this.isDone = false;
+      });
     }
 
   // GET

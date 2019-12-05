@@ -1,3 +1,4 @@
+import { CourseService } from './../services/course.service';
 import { RegisterService } from './../services/register.service';
 import { UserService } from './../services/user.service';
 import { User } from './../auth/user';
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   users: Array<User>;
   constructor(
+    private courses: CourseService,
     private fb: FormBuilder,
     private authService: AuthService,
     public userService: UserService,
@@ -35,6 +37,9 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+
+    this.courses.getCourses();
+
   }
 
   get f() {
